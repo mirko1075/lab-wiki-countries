@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import data from '../countries.json';
+import { Link } from 'react-router-dom';
 
 class CountryDetails extends Component {
   render() {
@@ -41,7 +42,9 @@ class CountryDetails extends Component {
                   {bordersCountries.map((country) => {
                     return (
                       <li key={country.cca3}>
-                        <a href={'/' + country.cca3}>{country.name.common}</a>
+                        <Link to={'/' + country.cca3}>
+                          {country.name.common}
+                        </Link>
                       </li>
                     );
                   })}

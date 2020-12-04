@@ -21,6 +21,14 @@ class App extends Component {
           <CountriesList countries={this.state.countries} />
           <Switch>
             <Route path="/:countryCode" component={CountryDetails} />
+            {/* <Route
+              path="/:countryCode"
+              render={(reactRouterProps) => (
+                <CountryDetails
+                  countries={this.state.countries}
+                  {...reactRouterProps}
+                /> }
+            )} /> */}
           </Switch>
         </div>
       </div>
@@ -30,9 +38,9 @@ class App extends Component {
     fetch('https://countries.tech-savvy.tech/countries ') // 2.
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data);
+        console.log('data from DidMount', data);
         this.setState({ countries: data });
-        console.log('state :>> ', this.state);
+        console.log('state from Didmount :>> ', this.state);
       });
   }
 }
